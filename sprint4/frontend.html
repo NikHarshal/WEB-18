@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cointenar{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-auto-rows: auto;
+            text-align: center;
+        }
+        p+img{
+            height: 70px;
+            margin-top: -20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Frontend</h1>
+    <div id="cointenar"></div>
+</body>
+</html>
+<script>
+    var inverdataarr=JSON.parse(localStorage.getItem("inversterdata"))
+    console.log(inverdataarr);
+
+    inverdataarr.forEach(function (ele) {
+
+     var box=document.createElement('div');
+
+     inverstereimg=document.createElement("img")
+
+     inverstereimg.setAttribute("src",ele.inverstereimg)
+
+            var inverstername=document.createElement("h3");
+
+            inverstername.innerText=ele.inverstername
+
+            var inverpostionion =document.createElement("p");
+
+            inverpostionion.innerText=ele.inverpostionion
+
+            var inverstercompanylogo=document.createElement("img");
+
+            inverstercompanylogo.setAttribute("src",ele.inverstercompanylogo)
+
+            box.append(inverstereimg,inverstername,inverpostionion,inverstercompanylogo)
+
+            document.querySelector("#cointenar").append(box)  ;
+});
+    </script>

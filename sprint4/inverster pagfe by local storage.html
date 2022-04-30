@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inverster page by local storage </title>
+</head>
+<link rel="stylesheet" href="nverster.css">
+<body>
+    <div id="info">
+        <div ><a href="frontend.html">Frontend</a> </div>
+        <div> <a href="backend.html">Backend</a></div>
+    </div>
+    <form id="iform">
+        <input id="iurl"  placeholder="enter img url">
+        <input id="name"  placeholder="enter name">
+        <input id="pos"  placeholder="positon">
+        <input id="ilogo"  placeholder="company logo">
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+<script>
+
+     document.querySelector('form')
+     .addEventListener("submit",submitfunction);
+
+     var formdata=JSON.parse(localStorage.getItem("inversterdata"))||[]
+    //  if(localStorage.getItem("inversterdata")==null){
+    //     formdata=[]
+    //  }
+    //  else{
+    //     formdata= JSON.parse(localStorage.getItem("inversterdata"))
+    //  }
+     
+     function submitfunction(){
+         event.preventDefault()
+        var formobj={
+inverstereimg:iform.iurl.value,
+inverstername:iform.name.value,
+inverpostionion:iform.pos.value,
+inverstercompanylogo:iform.ilogo.value,
+        }
+       
+        formdata.push(formobj)
+        console.log(formdata); 
+        localStorage.setItem("inversterdata",JSON.stringify(formdata))
+    }
+</script>
